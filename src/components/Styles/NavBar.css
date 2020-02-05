@@ -1,0 +1,34 @@
+.NavBar a {
+  text-decoration: none;
+  color: #4a4a4a;
+}
+.NavBar {
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: #c4def1;
+  min-width: 810px;
+  font-family: AvenirNext-Bold;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+
+.NavBar__Menu {
+  display: flex;
+  align-items: center;
+}
+
+.NavBar__Brand {
+  flex-grow: 1;
+  font-size: 24px;
+}
+
+.NavBar__Item {
+  padding: 0 1rem;
+}
+
+.NavBar__Brand img {
+  height: 30px;
+}
+.NavBar__Brand span {
+  padding-left: 1rem;
+}

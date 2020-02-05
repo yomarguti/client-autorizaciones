@@ -1,0 +1,15 @@
+.Home__SectionListContainer {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  min-width: 700px;
+}
+
+.Home__Heading {
+  color: #4a4a4a;
+  font-family: AvenirNext-DemiBold;
+  font-size: 30px;
+  padding: 20px 0 3px 20px;
+}
