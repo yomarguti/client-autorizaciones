@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+
 import NavBar from '../components/NavBar';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import './Styles/BlastDetail.css';
+import blastImage from '../images/blast.svg';
 
 const volList = [
   {
@@ -832,18 +836,89 @@ const volList = [
 ];
 
 const BlastDetail = (props) => {
-  const blast = volList.find((vol) => vol.id === parseInt(props.match.params.blastId));
+  const [startDate, setStartDate] = useState(new Date());
+
+  const { name, type, year, processStatus, comment } = volList.find(
+    (vol) => vol.id === parseInt(props.match.params.blastId)
+  );
 
   return (
     <>
       <NavBar />
       <div className="BlastDetail__Container">
-        <h1>Vista Detallada de Una Voladura</h1>
-        <h2>{blast.name}</h2>
-        <p>El id de la voladura es {blast.id}</p>
-        <p>{blast.processStatus}</p>
-        <p>{blast.type}</p>
-        <p>{blast.comment}</p>
+        <div className="BlastDetail__Title">
+          <div className="BlastDetail__Name">{name}</div>
+          <div className="BlastDetail__Type">{type}</div>
+        </div>
+        <div className="BlastDetail__Heading">
+          <div className="BlastDetail__Image">
+            <img src={blastImage} alt="Blast" />
+          </div>
+          <div className="BlastDetail__HeadingText">
+            <div>
+              <span>Año:</span> {year}
+            </div>
+            <div>
+              <span>Nivel:</span> N+155
+            </div>
+            <div>
+              <span>Tipo de Cota:</span> Superficie
+            </div>
+            <div>
+              <span>Grid de Piso:</span> P+155-1
+            </div>
+            <div>
+              <span>Tiene Precorte:</span> No
+            </div>
+            <div>
+              <span>Pala:</span> E26
+            </div>
+            <div>
+              <span>Panel:</span> 123
+            </div>
+            <div>
+              <span>Manto:</span> 060-055
+            </div>
+            <div>
+              <span>Patrón:</span> 6.8x7.85
+            </div>
+            <div>
+              <span>Altura de Banco (metros):</span> 11.0
+            </div>
+          </div>
+        </div>
+        <div className="BlastDetail__CurrentProcess">
+          <div className="BlastDetail__CurrentProcess__Title">
+            <span>Estado</span>
+            <div>{processStatus}</div>
+          </div>
+          <div>
+            <span>Comentario:</span> {comment}
+          </div>
+        </div>
+        <div className="BlastDetail__CurrentProcess__Form">
+          <form>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect2">Realizado ?</label>
+              <select className="form-control" id="exampleFormControlSelect2">
+                <option>No</option>
+                <option>Si</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlSelect2">Fecha de Cargue a Modular:</label>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                timeCaption="time"
+                dateFormat="MMMM d, yyyy h:mm aa"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
