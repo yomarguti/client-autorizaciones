@@ -1,0 +1,94 @@
+.BlastDetail__Container {
+  width: 100%;
+  max-width: 900px;
+  min-width: 750px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  padding-top: 25px;
+  font-family: AvenirNext-Medium;
+  display: flex;
+  flex-wrap: wrap;
+  color: #4a4a4a;
+}
+
+.BlastDetail__Title {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+.BlastDetail__Heading {
+  display: flex;
+  border-bottom: 1px solid #e1e3e3;
+  width: 100%;
+}
+
+.BlastDetail__Heading img {
+  width: 350px;
+  padding: 30px;
+}
+
+.BlastDetail__Image {
+  border: 1px solid #e1e3e3;
+  margin: 20px;
+}
+
+.BlastDetail__HeadingText {
+  margin: 20px;
+}
+
+.BlastDetail__HeadingText span {
+  font-family: AvenirNext-Bold;
+}
+
+.BlastDetail__Name {
+  font-family: AvenirNext-Bold;
+  font-size: 35px;
+}
+
+.BlastDetail__Type {
+  border-bottom: 1px solid #e1e3e3;
+  margin-bottom: 15px;
+}
+
+.BlastDetail__HeadingText div {
+  padding: 2px 0;
+}
+
+.BlastDetail__CurrentProcess {
+  width: 100%;
+  border-bottom: 1px solid #e1e3e3;
+  padding: 15px 0;
+}
+
+.BlastDetail__CurrentProcess__Title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.BlastDetail__CurrentProcess span {
+  font-family: AvenirNext-Bold;
+}
+
+.BlastDetail__CurrentProcess__Title div {
+  font-family: AvenirNext-DemiBold;
+  font-size: 23px;
+  color: #0564cc;
+}
+
+.BlastDetail__CurrentProcess__Form {
+  width: 100%;
+  padding: 15px 0;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  color: #4a4a4a;
+}

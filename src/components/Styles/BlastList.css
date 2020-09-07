@@ -1,0 +1,24 @@
+.BlastList {
+  margin-top: 20px;
+}
+
+.BlastList__Heading {
+  padding: 15px 0;
+}
+
+.BlastList__Filter {
+  font-style: italic;
+}
+
+.BlastList__HeadingProcess {
+  font-family: AvenirNext-Bold;
+  font-size: 24px;
+  color: #4a4a4a;
+}
+
+.BlastList__HeadingTitle {
+  font-family: AvenirNext-DemiBold;
+  font-size: 24px;
+  color: #0564cc;
+  padding-left: 10px;
+}

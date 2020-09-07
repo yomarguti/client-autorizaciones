@@ -1,0 +1,28 @@
+.SectionList__Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 9px;
+  padding: 1rem 1rem;
+}
+
+.SectionList__Title {
+  font-family: AvenirNext-DemiBold;
+  font-size: 23px;
+  color: #0564cc;
+  padding: 1rem 0;
+}
+
+.SectionList__More {
+  font-family: AvenirNext-DemiBold;
+  font-size: 14px;
+  color: #0564cc;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.SectionList__Container a {
+  text-decoration: none;
+}

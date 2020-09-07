@@ -1,0 +1,36 @@
+.SectionItem__Comment {
+  font-family: AvenirNext-DemiBold;
+  font-size: 15px;
+  color: #4a4a4a;
+}
+
+.SectionItem__Type {
+  font-family: AvenirNext-Medium;
+  font-size: 12px;
+  color: #4a4a4a;
+}
+
+.SectionItem__Name {
+  font-family: AvenirNext-Bold;
+  font-size: 24px;
+  color: #4a4a4a;
+  width: 15%;
+  padding-left: 5px;
+}
+
+.SectionItem__Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid gray;
+}
+
+.SectionItem__Container:hover {
+  background-color: #ebebeb;
+}
+
+.SectionItemText__Container {
+  padding-left: 14px;
+}

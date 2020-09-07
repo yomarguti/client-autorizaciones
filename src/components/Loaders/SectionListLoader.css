@@ -1,0 +1,8 @@
+.SectionListLoader__Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 9px;
+  padding: 1rem 1rem;
+  width: 100%;
+}
