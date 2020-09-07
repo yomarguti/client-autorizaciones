@@ -5,17 +5,15 @@ import { Link } from 'react-router-dom';
 
 import './Styles/SectionList.css';
 
-const SectionList = ({ process: { id, name: title }, volArray }) => {
-  const filteredVols = volArray.filter((volItem) => volItem.processStatus === title).slice(0, 10);
-
-  const volList = filteredVols.map((vol) => {
-    return <SectionItem key={vol.id} vol={vol} />;
+const SectionList = ({ process: { id, name }, volArray }) => {
+  const volList = volArray.map((vol) => {
+    return <SectionItem key={vol.voladuraId} vol={vol} />;
   });
 
   return (
     <div className="SectionList__Container">
       <div className="SectionList__Title">
-        <Link to={`/blast-process/${id}`}>{title}</Link>
+        <Link to={`/blast-process/${id}`}>{name}</Link>
       </div>
       {volList}
       <div className="SectionList__More">

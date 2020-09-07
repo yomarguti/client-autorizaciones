@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Styles/BlastList.css';
 import BlastListItem from './BlastListItem';
@@ -834,24 +834,38 @@ const volList = [
 const BlastList = ({ processTitle }) => {
   const volsFiltered = volList.filter((vol) => vol.processStatus === processTitle);
 
+  const [query, setQuery] = useState('');
+  const [filteredBlasts, setFilteredBlasts] = useState(volsFiltered);
+
+  const onChangeInput = (e) => {
+    setQuery(e.target.value.toUpperCase());
+
+    const result = volsFiltered.filter((blast) => {
+      return `${blast.name}`.toLowerCase().includes(query.toLowerCase());
+    });
+
+    setFilteredBlasts(result);
+  };
+
   return (
     <>
       <div className="BlastList">
         <div className="BlastList__Heading">
-          {' '}
-          <span className="BlastList__HeadingProcess">Proceso:</span>{' '}
-          <span className="BlastList__HeadingTitle">{` ${processTitle}`}</span>{' '}
+          <span className="BlastList__HeadingProcess">Proceso:</span>
+          <span className="BlastList__HeadingTitle">{` ${processTitle}`}</span>
         </div>
         <div className="form-group">
           <input
             type="text"
             className="form-control BlastList__Filter"
             placeholder="Escriba el nombre de una voladura"
+            value={query}
+            onChange={(e) => onChangeInput(e)}
           />
         </div>
       </div>
       <ul className="list-unstyled">
-        {volsFiltered.map((blast) => {
+        {filteredBlasts.map((blast) => {
           return (
             <li key={blast.id}>
               <BlastListItem blastData={blast} />
