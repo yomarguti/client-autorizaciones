@@ -6,7 +6,7 @@
   width: 100%;
   padding: 0.5rem 0;
   background-color: #c4def1;
-  min-width: 810px;
+  min-width: 640px;
   font-family: AvenirNext-Bold;
   color: #4a4a4a;
   font-size: 16px;
@@ -23,7 +23,11 @@
 }
 
 .NavBar__Item {
-  padding: 0 1rem;
+  padding: 0rem 0.5rem;
+}
+
+.NavBar__Item__Active {
+  border-bottom: 2px solid #8fb6d2;
 }
 
 .NavBar__Brand img {

@@ -16,18 +16,18 @@ const useBlastingsData = () => {
 
   const [state, setState] = useState(initialState);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
+    try {
       setState({ procesos: [], loading: true, error: null });
       const response = await autorizacionesApi.get('/procesos');
       await wait(2000);
       setState({ error: null, procesos: [...response.data.blastProcesses], loading: false });
-    };
-    try {
-      fetchData();
     } catch (error) {
       setState({ procesos: [], loading: false, error });
     }
+  };
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return { state };

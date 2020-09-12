@@ -1,0 +1,26 @@
+.NewAuthorization__Container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NewAuthorization__Content {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.NewAuthorization__Heading {
+  padding: 15px 0;
+  font-family: AvenirNext-DemiBold;
+  font-size: 24px;
+  color: #0564cc;
+  padding-left: 10px;
+}
+
+.NewAuthorization__Error {
+  padding: 1rem 0rem;
+}
