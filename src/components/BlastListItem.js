@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 
 import './Styles/BlastListItem.css';
 
-const BlastListItem = ({ blastData: { id, name, year, type, comment } }) => {
+const BlastListItem = ({
+  blastData: {
+    voladuraId: id,
+    nombre: name,
+    anio: year,
+    tiposVoladura: { nombre: type },
+    comentario: comment,
+  },
+}) => {
   return (
     <Link to={`/blast/${id}`}>
       <div className="BlastListItem">

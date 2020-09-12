@@ -1,54 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import * as R from 'ramda';
 import NavBar from '../components/NavBar';
-import autorizacionesApi from '../api/autorizacionesApi';
 
 import './Styles/Home.css';
+
+import useBlastingsData from '../hooks/useBlastingsData';
 import SectionList from '../components/SectionList';
 import SectionListLoader from '../components/Loaders/SectionListLoader';
 
-const wait = async (ms) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+const getSectionList = ({ procesoId, nombre, vols }) => {
+  return <SectionList process={{ id: procesoId, name: nombre }} volArray={vols} key={procesoId} />;
 };
 
-function Home() {
-  const initialState = {
-    procesos: [],
-    loading: true,
-    error: null,
-  };
+const getProcessBySections = (loadingState, error, proceses) => {
+  if (loadingState) {
+    return <SectionListLoader />;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        No se pudo obtener la información del servidor
+      </div>
+    );
+  }
+  return R.map(getSectionList, proceses);
+};
 
-  const [state, setState] = useState(initialState);
+const Home = () => {
+  const {
+    state: { procesos, loading, error },
+  } = useBlastingsData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setState({ procesos: [], loading: true, error: null });
-      const response = await autorizacionesApi.get('/procesos');
-      await wait(2000);
-      setState({ error: null, procesos: [...response.data.vols], loading: false });
-    };
-    try {
-      fetchData();
-    } catch (error) {
-      setState({ procesos: [], loading: false, error });
-      console.log('error:', error);
-    }
-  }, []);
-
-  const secciones = state.loading ? (
-    <SectionListLoader />
-  ) : (
-    state.procesos.map((vol, index) => {
-      return (
-        <SectionList
-          process={{ id: vol.procesoId, name: vol.nombre }}
-          volArray={vol.vols}
-          key={index}
-        />
-      );
-    })
-  );
+  const secciones = getProcessBySections(loading, error, procesos);
 
   return (
     <>
@@ -57,6 +40,6 @@ function Home() {
       <div className="Home__SectionListContainer">{secciones}</div>
     </>
   );
-}
+};
 
 export default Home;

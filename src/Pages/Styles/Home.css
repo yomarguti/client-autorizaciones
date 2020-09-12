@@ -5,6 +5,7 @@
   margin: 0 auto;
   flex-wrap: wrap;
   min-width: 700px;
+  justify-content: space-around;
 }
 
 .Home__Heading {
