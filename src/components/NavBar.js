@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './Styles/NavBar.css';
 import logo from '../images/logo.svg';
@@ -16,9 +16,12 @@ const NavBar = () => {
               <span className="font-weight-bold ">Autorización de Voladuras</span>
             </Link>
           </div>
-          <span className="NavBar__Item">Nueva Autorización +</span>
-          <span className="NavBar__Item">Admin</span>
-          <span className="NavBar__Item">Yomar</span>
+          <NavLink to="/new-authorization" activeClassName="NavBar__Item__Active">
+            <span className="NavBar__Item">Nueva Autorización +</span>
+          </NavLink>
+          <NavLink to="/Profile" activeClassName="NavBar__Item__Active">
+            <span className="NavBar__Item">Yomar</span>
+          </NavLink>
         </div>
       </div>
     </div>
